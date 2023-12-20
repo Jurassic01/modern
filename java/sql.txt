@@ -1,0 +1,22 @@
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+INSERT INTO users (name, email, password) VALUES
+    ('John Doe', 'john@example.com', 'password123'),
+    ('Alice Smith', 'alice@example.com', 'securepass456'),
+    ('Bob Johnson', 'bob@example.com', 'mysecretpass789');
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    status VARCHAR(50) DEFAULT 'To Do'
+);
+
+INSERT INTO tasks (title, description, status) VALUES
+    ('Prepare Report', 'Create a report for the upcoming meeting', 'In Progress'),
+    ('Learn a New Framework', 'Familiarize with the basics of the new framework', 'To Do'),
+    ('Send Email to Clients', 'Send an email regarding service updates', 'Done');
